@@ -39,7 +39,7 @@ return {
                     offsets = {
                         {
                             filetype = "NvimTree",
-                            text = "--- NvimTree ---",
+                            text = "NvimTree .. 📁",
                             highlight = "Directory",
                             text_align = "center",
                         },
