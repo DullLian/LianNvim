@@ -1,8 +1,8 @@
 -- 开启 Folding 模块
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "expr";
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()";
 -- 默认不要折叠
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 99;
 return {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
         config = function () 
