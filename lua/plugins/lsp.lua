@@ -1,5 +1,26 @@
+servers = { 
+    "clangd", -- c/cpp
+    "gopls", -- go
+    "lua_ls", -- lua
+    "vimls", -- vim
+    "cssls", -- css
+    "html", -- html
+    "jsonls", -- json
+    "tsserver", -- ts
+    "eslint", -- js
+    "sqlls", -- sql
+    "rust_analyzer", -- rust
+    "jdtls", -- java
+    "phpactor", -- php
+    "volar", -- vue
+    "lemminx", -- xml
+    "pyright", -- python
+    "bashls", -- shell
+};
+
 return {
     { "neovim/nvim-lspconfig"},
+    { "hrsh7th/cmp-nvim-lsp" },
     { "williamboman/mason.nvim", config = function()
             require("mason").setup({
                -- 用户界面相关配置
@@ -33,47 +54,17 @@ return {
     {"williamboman/mason-lspconfig.nvim", config = function()
         require("mason-lspconfig").setup({
             -- 确保安装的 LSP 服务器列表
-            ensure_installed = { "clangd", -- c/cpp
-                "gopls", -- go
-                "lua_ls", -- lua
-                "vimls", -- vim
-                "cssls", -- css
-                "html", -- html
-                "jsonls", -- json
-                "tsserver", -- ts
-                "eslint", -- js
-                "sqlls", -- sql
-                "rust_analyzer", -- rust
-                "jdtls", -- java
-                "phpactor", -- php
-                "volar", -- vue
-                "lemminx", -- xml
-                "pyright", -- python
-                "bashls", -- shell
-            }, -- 这里列出你希望确保安装的 LSP 服务器
+            ensure_installed = servers, -- 这里列出你希望确保安装的 LSP 服务器
             -- 自动安装缺失的 LSP 服务器
              automatic_installation = true,
-            -- 如果设置为 true，则在启动 Neovim 时自动启动 LSP 服务器
-            -- 如果你想要手动控制 LSP 服务器的启动，可以设置为 false
-            automatic_setup = true,
-            -- 可以在这里设置 LSP 服务器特定的配置
-            -- 例如，对于 Python 的 LSP 服务器 pyright
-            servers = {
-                pyright = {
-                    -- pyright 的具体配置
-                    settings = {
-                        python = {
-                            analysis = {
-                                autoSearchPaths = true,
-                                diagnosticMode = "openFilesOnly",
-                                useLibraryCodeForTypes = true,
-                            },
-                        },
-                    },
-                },
-                -- 可以继续添加其他 LSP 服务器的配置
-            },
         });
+        local capabilities = require("cmp_nvim_lsp").default_capabilities();
+        local lspconfig = require("lspconfig");
+        for _, lsp in ipairs(servers) do
+            lspconfig[lsp].setup({
+                capabilities = capabilities,
+            });
+        end
     end,
     },
 };
