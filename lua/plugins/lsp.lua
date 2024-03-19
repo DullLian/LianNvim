@@ -18,6 +18,11 @@ servers = {
     "bashls", -- shell
 };
 
+-- 设置键映射以使用 LSP 功能
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true });
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { silent = true });
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { silent = true });
+
 return {
     { "neovim/nvim-lspconfig"},
     { "hrsh7th/cmp-nvim-lsp" },

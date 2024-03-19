@@ -50,5 +50,3 @@ vim.o.writebackup = false;
 vim.o.swapfile = false;
 -- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
 vim.o.timeoutlen = 500;
-
-
