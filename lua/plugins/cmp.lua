@@ -28,15 +28,22 @@ local kinds = {
 };
 
 return {
-    { "onsails/lspkind-nvim" }, -- 
+    { "onsails/lspkind-nvim" },
     { "hrsh7th/cmp-buffer" },   -- 缓冲区源插件
     { "hrsh7th/cmp-path" },     -- 路径源插件
-    { "hrsh7th/cmp-cmdline" },  -- 命令行源插件
-    { "hrsh7th/nvim-cmp",  config = function()
+    { "hrsh7th/cmp-cmdline" },  -- 命令行源插
+    { "L3MON4D3/LuaSnip" },     -- 代码片段引擎
+	{ "saadparwaiz1/cmp_luasnip" },
+    { "hrsh7th/nvim-cmp",  config = function(args)
         local cmp = require("cmp");
         local lspkind = require("lspkind");
         lspkind.init({ symbol_map = kinds });
         cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require("luasnip").lsp_expand(args.body);
+                end,
+            },
             formatting = {
                 format = lspkind.cmp_format({
                     mode = 'symbol', -- 显示图标和文本
