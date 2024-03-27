@@ -3,7 +3,7 @@ keys = {
   prev = "<C-h>",
   next = "<C-l>",
   -- 关闭当前缓冲区
-  close = "<C-w>",
+  close = "<leader>bc",
  -- 关闭 = "<leader>bc",
   -- 关闭左侧所有标签页
   close_left = "th",
