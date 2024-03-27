@@ -1,32 +1,30 @@
-keys = {
-  -- 左右循环切换
-  prev = "<C-h>",
-  next = "<C-l>",
-  -- 关闭当前缓冲区
-  close = "<leader>bc",
- -- 关闭 = "<leader>bc",
-  -- 关闭左侧所有标签页
-  close_left = "th",
-  -- 关闭右侧所有标签页
-  close_right = "tl",
-  -- 关闭所有其他标签页
-  close_others = "to",
-  -- 关闭并选择
-  close_pick = "tp",
+local keyset = vim.keymap.set;
+
+local keys = {
+    -- 左右循环切换
+    prev = "<leader>bh",
+    next = "<leader>bl",
+    -- 关闭当前缓冲区
+    close = "<leader>bc",
+    -- 关闭左侧所有标签页
+    close_left = "<leader>bch",
+    -- 关闭右侧所有标签页
+    close_right = "<leader>bal",
+    -- 关闭所有其他标签页
+    close_others = "<leader>bco",
 };
 
-vim.keymap.set("n", keys.prev, ":BufferLineCyclePrev<CR>");
-vim.keymap.set("n", keys.next, ":BufferLineCycleNext<CR>");
-  -- "moll/vim-bbye"
-vim.keymap.set("n", keys.close, ":Bdelete!<CR>");
-vim.keymap.set("n", keys.close_left, ":BufferLineCloseLeft<CR>");
-vim.keymap.set("n", keys.close_right, ":BufferLineCloseRight<CR>");
-vim.keymap.set("n", keys.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>");
-vim.keymap.set("n", keys.close_pick, ":BufferLinePickClose<CR>");
+keyset("n", keys.prev, ":BufferLineCyclePrev<CR>");
+keyset("n", keys.next, ":BufferLineCycleNext<CR>");
+-- "moll/vim-bbye"
+keyset("n", keys.close, ":Bdelete!<CR>");
+keyset("n", keys.close_left, ":BufferLineCloseLeft<CR>");
+keyset("n", keys.close_right, ":BufferLineCloseRight<CR>");
+keyset("n", keys.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>");
 
 return {
     { "akinsho/bufferline.nvim", version = "*", dependencies = { "nvim-tree/nvim-web-devicons",
-        "moll/vim-bbye" }, 
+        "moll/vim-bbye" },
         config = function()
             vim.opt.termguicolors = true;
             require("bufferline").setup({
@@ -55,8 +53,8 @@ return {
                         end
                         return s;
                     end,
-            },
-  });
-        end, 
+                },
+            });
+        end,
     },
 };
