@@ -8,7 +8,7 @@
 
 - [整体功能的展示](#整体功能的展示)
 
-- [快捷键表](/blob/main/ShortcutTable.md)
+- [快捷键表](https://github.com/DullLian/LianNvim/blob/main/ShortcutTable.md)
 
 ### 插件列表
 
