@@ -25,7 +25,6 @@ return {
                 },
                 sync_install = false,
                 highlight = { enable = true },
-                indent = { enable = true },
                 -- 启用增量选择模块
                 incremental_selection = {
                     enable = true,

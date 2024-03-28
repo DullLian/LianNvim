@@ -178,3 +178,12 @@
 | n   | ctrl+c | 关闭telescope | telescope |
 | n   | ctrl+u | 预览窗口向上滚动    | telescope |
 | n   | ctrl+d | 预览窗口向下滚动    | telescope |
+
+- **nvim-treesitter**
+
+| 模式  | 按键             | 效果      |
+|:---:|:--------------:|:-------:|
+| n   | enter(回车键)     | 初始化增量选择 |
+| v   | enter(回车键)     | 增量选择节点  |
+| v   | backspace(退回键) | 减量选择节点  |
+| v   | tab            | 增量选择范围  |
