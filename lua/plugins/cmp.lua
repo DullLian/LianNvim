@@ -27,21 +27,28 @@ local kinds = {
     TypeParameter = "  ",
 };
 
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 return {
     { "onsails/lspkind-nvim" },
     { "hrsh7th/cmp-buffer" },   -- 缓冲区源插件
     { "hrsh7th/cmp-path" },     -- 路径源插件
     { "hrsh7th/cmp-cmdline" },  -- 命令行源插
     { "L3MON4D3/LuaSnip" },     -- 代码片段引擎
-	{ "saadparwaiz1/cmp_luasnip" },
+    { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/nvim-cmp",  config = function(args)
         local cmp = require("cmp");
         local lspkind = require("lspkind");
+        local luasnip = require("luasnip");
         lspkind.init({ symbol_map = kinds });
         cmp.setup({
             snippet = {
                 expand = function(args)
-                    require("luasnip").lsp_expand(args.body);
+                    luasnip.lsp_expand(args.body);
                 end,
             },
             formatting = {
@@ -77,9 +84,18 @@ return {
                 ["<C-j>"] = cmp.mapping.select_next_item(),
                 -- 确认
                 ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.None }),
-                -- 如果窗口内容太多，可以滚动
-                ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {"i", "c"}),
-                ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), {"i", "c"}),
+                -- 下一个
+                ["<Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.complete()
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
                 -- 添加LSP源
