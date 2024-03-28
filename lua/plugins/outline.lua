@@ -1,3 +1,7 @@
+local keyset = vim.keymap.set;
+local otps = { noremap = true, silent = true };
+keyset("n", "<A-o>", "<CMD>SymbolsOutline<CR>", otps);
+
 return {
     { "simrat39/symbols-outline.nvim", config = function()
         require("symbols-outline").setup({

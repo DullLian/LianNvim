@@ -196,4 +196,24 @@
 | n   | " "+h+j | 在光标下方添加注释 |
 | n   | " "+h+e | 在行尾添加注释   |
 
+### symbols-outline
+
+注意：这里的" "为空格按键。
+
+| 模式  | 按键         | 效果                | 范围      |
+|:---:|:----------:|:-----------------:|:-------:|
+| n   | alt+o      | 打开symbols-outline | 全局      |
+| n   | Enter(回车键) | 跳转到代码中的符号位置       | outline |
+| n   | o          | 跳转到代码中的符号位置而不失去焦点 | outline |
+| n   | ctrl+" "   | 悬停当前符号            | outline |
+| n   | K          | 切换当前符号预览          | outline |
+| n   | r          | 重命名符号             | outline |
+| n   | a          | 代码操作              | outline |
+| n   | h          | 折叠符号              | outline |
+| n   | l          | 展开符号              | outline |
+| n   | W          | 折叠所有符号            | outline |
+| n   | E          | 展开所有符号            | outline |
+| n   | R          | 重置所有折叠            | outline |
+| n   | ?          | 显示帮助信息            | outline |
+
 

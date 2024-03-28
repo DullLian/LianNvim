@@ -14,13 +14,13 @@ local keys = {
     close_others = "<leader>bco",
 };
 
-keyset("n", keys.prev, ":BufferLineCyclePrev<CR>");
-keyset("n", keys.next, ":BufferLineCycleNext<CR>");
+keyset("n", keys.prev, "<CMD>BufferLineCyclePrev<CR>");
+keyset("n", keys.next, "<CMD>BufferLineCycleNext<CR>");
 -- "moll/vim-bbye"
-keyset("n", keys.close, ":Bdelete!<CR>");
-keyset("n", keys.close_left, ":BufferLineCloseLeft<CR>");
-keyset("n", keys.close_right, ":BufferLineCloseRight<CR>");
-keyset("n", keys.close_others, ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>");
+keyset("n", keys.close, "<CMD>Bdelete!<CR>");
+keyset("n", keys.close_left, "<CMD>BufferLineCloseLeft<CR>");
+keyset("n", keys.close_right, "<CMD>BufferLineCloseRight<CR>");
+keyset("n", keys.close_others, "<CMD>BufferLineCloseRight<CR><CMD>BufferLineCloseLeft<CR>");
 
 return {
     { "akinsho/bufferline.nvim", version = "*", dependencies = { "nvim-tree/nvim-web-devicons",
