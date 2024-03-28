@@ -166,3 +166,15 @@
 | n   | " "+b+c+h | 关闭左边的所有文件 |
 | n   | " "+b+c+l | 关闭右边的所有文件 |
 | n   | " "+b+c+o | 关闭其他所有文件  |
+
+- **telescope**
+
+| 模式  | 按键     | 效果          | 范围        |
+|:---:|:------:|:-----------:|:---------:|
+| n   | ctrl+f | 全局搜索        | 全局        |
+| n   | ctrl+p | 查询文件        | 全局        |
+| n   | ctrl+j | 文件列表中向下移动   | telescope |
+| n   | ctrl+k | 文件列表中向上移动   | telescope |
+| n   | ctrl+c | 关闭telescope | telescope |
+| n   | ctrl+u | 预览窗口向上滚动    | telescope |
+| n   | ctrl+d | 预览窗口向下滚动    | telescope |
