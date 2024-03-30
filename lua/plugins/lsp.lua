@@ -16,6 +16,7 @@ local servers = {
     "lemminx", -- xml
     "pyright", -- python
     "bashls", -- shell
+    "cpptools",
 };
 
 local keyset = vim.keymap.set;

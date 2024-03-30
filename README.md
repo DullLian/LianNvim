@@ -33,8 +33,9 @@
 | noice            | 提供了替代了 Neovim 的消息、命令行和弹出菜单的用户界面。                                      |
 | symbols-outline  | 在窗口的右侧显示当前缓冲区中内容，方便跳转和                                                |
 | windows          | 提供管理窗口的大小功能，自动扩展当前窗口的宽度,最大化并恢复当前窗口。                                   |
-| winshift         | 可以自由地重新排列窗口布局，让您可以向任何方向移动任何窗口。                                        |
 | toggleterm       | 提供在编辑会话中持久化和切换多个终端，并且支持浮动窗口（Float）、垂直布局（Vertical）和标签页（Tab）等多种打开终端的方式。 |
+| nvim-dap         | nvim-dap 是一个用于 Neovim 的调试适配器协议（DAP）客户端实现。                             |
+| nvim-dap-ui      | 它为 Debug Adapter Protocol (DAP) 提供了一个用户界面，帮助开发者更方便地进行调试。              |
 
 ### 目录的结构
 
