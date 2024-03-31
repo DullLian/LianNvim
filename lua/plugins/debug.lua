@@ -6,26 +6,26 @@ local keyset = vim.keymap.set;
 local opts = {noremap = true, silent = true };
 
 -- 继续执行代码
-keyset("n", "<leader>dc", "<CMD>lua require(\"dap\").continue()<CR>", opts);
+keyset("n", "<leader>dx", "<CMD>lua require(\"dap\").continue()<CR>", opts);
 -- 在当前行设置或取消断点
-keyset("n", "<leader>dt", "<CMD>lua require(\"dap\").toggle_breakpoint()<CR>", opts);
+keyset("n", "<leader>dd", "<CMD>lua require(\"dap\").toggle_breakpoint()<CR>", opts);
 -- 清除所有断点
-keyset("n", "<leader>dT", "<CMD>lua require(\"dap\").clear_breakpoints()<CR>", opts);
+keyset("n", "<leader>da", "<CMD>lua require(\"dap\").clear_breakpoints()<CR>", opts);
 -- 逐过程
 keyset("n", "<leader>dj", "<CMD>lua require(\"dap\").step_over()<CR>", opts);
 -- 跳出当前函数
-keyset("n", "<leader>dk", "<CMD>lua require(\"dap\").step_out()<CR>", opts);
+keyset("n", "<leader>dt", "<CMD>lua require(\"dap\").step_out()<CR>", opts);
 -- 逐步进入
-keyset("n", "<leader>dl", "<CMD>lua require(\"dap\").step_into()<CR>", opts);
+keyset("n", "<leader>dr", "<CMD>lua require(\"dap\").step_into()<CR>", opts);
 -- 评估表达式
-keyset("n", "<leader>dh", "<CMD>lua require(\"dapui\").eval()<CR>", opts);
+keyset("n", "<leader>dp", "<CMD>lua require(\"dapui\").eval()<CR>", opts);
 
 return {
     { "rcarriga/nvim-dap-ui",
         dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "theHamsta/nvim-dap-virtual-text"},
         config = function ()
             require("nvim-dap-virtual-text").setup();
-            local dap = require("dap")
+            local dap = require("dap");
             local install_root_dir = vim.fn.stdpath("data") .. "/mason";
             local extension_path = install_root_dir .. "/packages/cpptools/extension/";
             local cpptools_path = extension_path .. "debugAdapters/bin/OpenDebugAD7";
@@ -42,15 +42,15 @@ return {
                     type = "cppdbg",
                     request = "launch",
                     program = function()
-                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file");
                     end,
                     cwd = "${workspaceFolder}",
                     stopAtEntry = true,
                 },
             }
 
-            dap.configurations.c = dap.configurations.cpp
-            dap.configurations.rust = dap.configurations.cpp
+            dap.configurations.c = dap.configurations.cpp;
+            dap.configurations.rust = dap.configurations.cpp;
 
             local dapui = require("dapui");
             dapui.setup({

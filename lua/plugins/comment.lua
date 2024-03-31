@@ -14,6 +14,10 @@ return {
                 -- 块注释的切换快捷键
                 block = "<leader>hs",
             },
+            opleader = {
+                line = "<leader>hz",
+                block = "<leader>hs",
+            },
             -- 额外的快捷键映射
             extra = {
                 -- 在光标上方添加注释

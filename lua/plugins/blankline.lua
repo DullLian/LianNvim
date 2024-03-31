@@ -1,5 +1,5 @@
 return {
-    { "lukas-reineke/indent-blankline.nvim", event = "BufReadPre", cond = function()
+    { "lukas-reineke/indent-blankline.nvim", lazy = true, event = "BufReadPre", cond = function()
         return vim.bo.filetype ~= "dashboard";
     end,
         config = function()
@@ -25,7 +25,7 @@ return {
             end);
             require("ibl").setup({
                 indent = { highlight = highlight },
-                scope = { enabled = false },
+                scope = { highlight = highlight, enabled = false },
             });
         end,
     },
