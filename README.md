@@ -36,6 +36,8 @@
 | toggleterm       | 提供在编辑会话中持久化和切换多个终端，并且支持浮动窗口（Float）、垂直布局（Vertical）和标签页（Tab）等多种打开终端的方式。 |
 | nvim-dap         | nvim-dap 是一个用于 Neovim 的调试适配器协议（DAP）客户端实现。                             |
 | nvim-dap-ui      | 它为 Debug Adapter Protocol (DAP) 提供了一个用户界面，帮助开发者更方便地进行调试。              |
+| trans            | 翻译插件                                                                  |
+| rustaceanvim     | 增强neovim的Rust体验                                                       |
 
 ### 目录的结构
 
